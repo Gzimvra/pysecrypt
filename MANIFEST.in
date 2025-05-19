@@ -1,0 +1,10 @@
+graft PySecrypt
+
+include pyproject.toml
+include setup.py
+
+global-exclude *.py[cod]
+global-exclude *.log
+global-exclude *.bak
+
+include README.md

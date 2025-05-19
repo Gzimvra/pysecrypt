@@ -1,0 +1,7 @@
+[build-system]
+# Build system configuration for PySecrypt
+requires = [
+    "setuptools >= 42", 
+    "wheel", # Needed for packaging distribution
+]
+build-backend = "setuptools.build_meta"

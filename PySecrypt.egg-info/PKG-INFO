@@ -1,0 +1,310 @@
+Metadata-Version: 2.4
+Name: PySecrypt
+Version: 0.1.0
+Summary: A command-line tool for educational demonstrations of encryption techniques
+Author: George Zimvragos
+Author-email: gzymvragos22b@amcstudent.edu.gr
+License: Free to use
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Education
+Classifier: Development Status :: 4 - Beta
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+Requires-Dist: cryptography>=44.0.0
+Requires-Dist: tqdm>=4.67.1
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# PySecrypt - Encryption CLI Tool
+
+![Python](https://img.shields.io/badge/python-3.13%2B-blue.svg)
+![Dependencies](https://img.shields.io/badge/dependencies-cryptography%2C%20tqdm-blue.svg)
+![Supported Platforms](https://img.shields.io/badge/platforms-Windows%2C%20Linux%2C%20MacOS-blue.svg)
+
+**PySecrypt** is a robust and versatile command-line interface (CLI) tool designed to provide a wide range of encryption techniques, enabling users to securely encrypt and decrypt files or directories. With support for several widely used encryption algorithms, including **AES**, **ChaCha20**, **RSA**, **AES-RSA**, and **AES-ECC**, PySecrypt offers flexibility and strong security for various use cases. Whether you're working with symmetric or asymmetric encryption, PySecrypt empowers users with easy-to-use tools for safeguarding sensitive data.
+
+Leveraging modern cryptographic standards and offering intuitive CLI commands, PySecrypt is suitable for both personal and professional use, providing a seamless encryption experience across different platforms.
+
+## Table of Contents
+
+- [PySecrypt - Encryption CLI Tool](#pysecrypt---encryption-cli-tool)
+  - [Table of Contents](#table-of-contents)
+  - [Supported Platforms](#supported-platforms)
+    - [Notes](#notes)
+  - [Installation](#installation)
+    - [Prerequisites](#prerequisites)
+    - [Dependencies](#dependencies)
+  - [Key Features](#key-features)
+  - [Commands](#commands)
+    - [Flag List](#flag-list)
+    - [Command List](#command-list)
+    - [Model Command Structures](#model-command-structures)
+  - [Version History](#version-history)
+  - [Known Issues](#known-issues)
+
+## Supported Platforms
+
+PySecrypt is designed to be compatible with multiple operating systems, offering flexibility for a wide range of user environments. The tool has been tested and verified on the following platforms:
+
+- **Windows**: Supported on Windows 10 and newer versions.
+- **Linux**: Not yet tested; may work, but compatibility is not guaranteed.
+- **macOS**: Not yet tested; may work, but compatibility is not guaranteed.
+
+### Notes
+
+- Ensure that **Python 3.13+** and the required dependencies (e.g., `cryptography`, `tqdm`) are installed for smooth operation.
+- Some encryption models may require additional libraries or configuration, especially on specific platforms. Please refer to the **Installation** section for detailed setup instructions.
+
+## Installation
+
+Follow these step-by-step instructions to install the PySecrypt CLI tool on your system.
+
+### Prerequisites
+
+Before installing PySecrypt, ensure that Python and pip are installed on your system. Follow these steps to verify:
+
+1. **Python 3.11 or Higher**  
+   Ensure you have Python 3.11 or higher installed. You can download the latest version from [python.org](https://www.python.org/).  
+   Verify your Python installation by running:
+
+   ```bash
+   python --version
+   ```
+
+2. **pip (Python Package Installer)**  
+   Pip is included by default with Python 3.4 and higher. Check if pip is installed by running:
+  
+   ```bash
+   pip --version
+   ```
+
+   If pip is not installed, you can install it by following the official [pip installation guide](https://pip.pypa.io/en/stable/installation/).
+
+Once both Python and pip are installed and verified, youβ€™re ready to install the PySecrypt tool using pip:
+
+1. **Navigate to the Top-Level Directory**  
+   Open a terminal or command prompt and navigate to the top-level directory of the PySecrypt project (the directory containing `setup.py`). For example:
+
+   ```bash
+   cd /path/to/pysecrypt
+   ```
+
+2. **Install the Package**  
+   Run one of the following commands to install the tool:
+
+   - For a standard installation:
+
+     ```bash
+     pip install .
+     ```
+
+   - For a development (editable) installation, which reflects code changes without reinstalling:
+
+     ```bash
+     pip install -e .
+     ```
+
+    This will install the PySecrypt package **along with all required dependencies**.
+
+3. **Verify the Installation**  
+   After installation, confirm that the PySecrypt package is installed and accessible by running one of the following commands:
+
+   - To check if the package is installed and view its details:
+
+     ```bash
+     pip show pysecrypt
+     ```
+
+   - To confirm the CLI tool is functional and check its version, you can run:
+
+     ```bash
+     pysecrypt --version
+     ```
+
+   If these commands execute without errors and display the expected information, the installation was successful!
+
+### Dependencies
+
+The PySecrypt package relies on the following dependencies:
+
+- [`cryptography`](https://pypi.org/project/cryptography/) (44.0.0+)
+- [`tqdm`](https://pypi.org/project/tqdm/) (4.67.1+)
+
+**Note**  
+When you install the PySecrypt package, the installer will automatically handle dependencies for you.
+
+- If the required dependencies are not already installed, pip will download and install them.  
+- If the dependencies are installed but the versions are incompatible, pip will upgrade them to meet the required versions specified in the package.  
+
+This ensures that your environment is properly set up to use PySecrypt without requiring any additional steps.
+
+## Key Features
+
+- **Multiple Encryption Algorithms**: PySecrypt supports a wide range of encryption techniques, including:
+  - **AES** (Advanced Encryption Standard)
+  - **ChaCha20** (A modern stream cipher)
+  - **RSA** (Rivestβ€“Shamirβ€“Adleman, an asymmetric encryption algorithm)
+  - **AES-RSA** (Hybrid encryption using AES for data encryption and RSA for key encryption)
+  - **AES-ECC** (Hybrid encryption using AES for data encryption and Elliptic Curve Cryptography for key encryption)
+
+- **Private and Public Key Pair Generation**: For asymmetric encryption models like **RSA**, PySecrypt allows you to generate private and public key pairs, enabling secure key management and encryption/decryption operations.
+
+- **File and Folder Encryption**: Easily encrypt and decrypt individual files or entire folders with just a few commands.
+
+- **CLI Tool**: The project is a command-line interface (CLI) tool, making it easy to automate or integrate encryption into scripts and workflows.
+
+- **Cross-Platform Support**: PySecrypt is designed to work on Linux, Windows, and macOS (with varying degrees of support, as noted in the Supported Platforms section).
+
+- **Progress Indication**: Using the **tqdm** library, PySecrypt provides real-time progress bars for encryption and decryption tasks, allowing users to track their operations.
+
+- **Customizable Options**: Users can specify encryption options, such as algorithm choice, encryption or decryption action, and input files/folders, offering flexibility for various use cases.
+
+- **Secure**: Built with industry-standard cryptographic libraries, ensuring that your data remains safe during encryption and decryption.
+
+## Commands
+
+PySecrypt offers a command-line interface (CLI) for performing encryption, decryption, and key generation operations using different encryption techniques. The tool supports various encryption algorithms and modes.
+
+### Flag List
+
+- `-v` or `--version`: Displays the version of the PySecrypt tool.
+- `-ciphers`: Lists all supported encryption techniques, available actions, and AES encryption modes.
+- `-enc`: Activates encryption functionality. This flag must be used to indicate that encryption or decryption operations will be performed.
+
+### Command List
+
+The commands below are only valid when you set the `-enc` flag.
+
+- `-t [TECHNIQUE]`: Specifies the encryption technique to use. Options include aes, chacha20, rsa, aes-rsa, and aes-ecc.
+- `-a [ACTION]`: Specifies the action to perform with the selected technique. Available actions are encrypt, decrypt, and generate.
+- `-i [INPUT]`: Provides the path to the input file or folder for encryption or decryption.
+- `-m [MODE]`: Specifies the AES encryption mode to use. Choose from CBC, CTR, or GCM. If not set defaults to CBC. *(Only applicable to AES-based techniques)*
+- `-p [PLAIN]`: Provides the plaintext (for encryption) or the base64-encoded ciphertext (for decryption). *(Only applicable to RSA encryption)*
+- `-k [KEY]`: For techniques that require keys, specify the path to the folder containing the necessary keys.
+
+The general structure of a command in PySecrypt is as follows:
+
+   ```bash
+   pysecrypt [OPTIONS] -t [TECHNIQUE] -a [ACTION] -i [INPUT] -k [KEY]
+   ```
+
+### Model Command Structures
+
+1. **AES Encryption (Symmetric)**
+
+   - Structure  
+
+     ```bash
+     pysecrypt -enc -t <TECHNIQUE> -a <ACTION> -i <PATH> -m <MODE> (Optional)
+     ```
+
+   - Example  
+
+     ```bash
+     pysecrypt -enc -t aes -a encrypt -i path/to/folder -m gcm
+     ```
+
+     ```bash
+     pysecrypt -enc -t aes -a decrypt -i path/to/folder -m gcm
+     ```
+
+2. **ChaCha20 Encryption (Symmetric)**
+
+   - Structure  
+
+     ```bash
+     pysecrypt -enc -t <TECHNIQUE> -a <ACTION> -i <PATH>
+     ```
+
+   - Example  
+
+     ```bash
+     pysecrypt -enc -t chacha20 -a encrypt -i path/to/folder
+     ```
+
+     ```bash
+     pysecrypt -enc -t chacha20 -a decrypt -i path/to/folder
+     ```
+
+3. **RSA Encryption (Asymmetric)**
+
+   - Structure  
+
+     ```bash
+     pysecrypt -enc -t <TECHNIQUE> -a <ACTION> -i <PATH> -k <KEY> -p <PLAIN>
+     ```
+
+   - Example  
+
+     ```bash
+     pysecrypt -enc -t rsa -a generate
+     ```
+
+     ```bash
+     pysecrypt -enc -t rsa -a encrypt -i path/to/folder -k encrypted_keys
+     ```
+
+     ```bash
+     pysecrypt -enc -t rsa -a encrypt -i somerandomtext -k encrypted_keys
+     ```
+
+     ```bash
+     pysecrypt -enc -t rsa -a encrypt -i path/to/folder -k encrypted_keys
+     ```
+
+     ```bash
+     pysecrypt -enc -t rsa -a decrypt -i 3885c40f757d6 -k encrypted_keys
+     ```
+
+4. **AES-RSA Encryption (Hybrid)**
+
+   - Structure  
+
+     ```bash
+     pysecrypt -enc -t <TECHNIQUE> -a <ACTION> -i <PATH> -k <KEY>
+     ```
+
+   - Example  
+
+     ```bash
+     pysecrypt -enc -t aes-rsa -a encrypt -i path/to/folder
+     ```
+
+     ```bash
+     pysecrypt -enc -t aes-rsa -a decrypt -i path/to/folder -k encrypted_keys
+     ```
+
+5. **AES-ECC Encryption (Hybrid)**
+
+   - Structure  
+
+     ```bash
+     pysecrypt -enc -t <TECHNIQUE> -a <ACTION> -i <PATH>
+     ```
+
+   - Example  
+
+     ```bash
+     pysecrypt -enc -t aes-ecc -a encrypt -i path/to/folder
+     ```
+
+     ```bash
+     pysecrypt -enc -t aes-ecc -a decrypt -i path/to/folder
+     ```
+
+## Version History
+
+- **v0.1.0** β€“ *Initial release*  
+  The first release of PySecrypt, providing basic encryption and decryption functionality. This version includes the core modules for asymmetrical, hybrid, and symmetrical encryption algorithms.
+
+## Known Issues
+
+- The current implementation reads the entire file into memory during encryption and decryption processes. This can be inefficient, especially for large files. Ideally, the tool should process the file in chunks to reduce memory usage and improve performance.
